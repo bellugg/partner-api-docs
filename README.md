@@ -1,3 +1,4 @@
+
 # Bellugg Agent API Specification
 
 ### Table of Contents
@@ -190,7 +191,7 @@ Attributes | Value
 --- | ---
 statusCode | integer
 error | string
-message | string, `Array<T>`, ObjectLiteral
+message | string, Array<T>, ObjectLiteral
 
 ---
 
@@ -294,4 +295,3 @@ quantity | integer
 totalPrice | float
 currency | string (ISO4217)
 active | boolean
-
