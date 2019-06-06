@@ -1,9 +1,6 @@
+# Bellugg Agent API Specification
 
-# API specification document
-
-## Content
-* [Error response](#error-response)
-* [Reference objects](#reference-objects)
+### Table of Contents
 * [Addresses](#addresses)
   * [Search addresses](#search-addresses)
 * [Coverage areas](#coverage-areas)
@@ -13,21 +10,16 @@
 * [Bookings](#bookings)
   * [Create booking](#create-booking)
   * [Get booking](#get-booking)
+* [Error response](#error-response)
+* [Object reference](#object-reference)
 
-## Error response
-#### Endpoint: All
-#### Body
-Attributes | Value
---- | ---
-statusCode | integer
-error | string
-message | string, `Array<T>`, ObjectLiteral
+---
 
 ## Addresses
 
-## Search addresses
-#### Endpoint: /addresses
-#### Method: Get
+### Search addresses
+##### Endpoint: `/addresses`
+##### Method: GET
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
@@ -41,12 +33,12 @@ query | string
 sourceAddressId | integer or null (required integer if type='destination')
 language | string or null
 
-#### Response Body
+#### Response body
 Attribute | Value
 --- | ---
 payload | [SearchAddressPayload](#searchaddresspayload)\[\]
 
-#### SearchAddressPayload
+##### SearchAddressPayload
 Attribute | Value
 --- | ---
 id | integer
@@ -64,11 +56,13 @@ insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 isCovered | boolean
 
+---
+
 ## Coverage areas
 
-## List coverage areas
-#### Endpoint: /coverageAreas
-#### Method: Get
+### List coverage areas
+##### Endpoint: `/coverageAreas`
+##### Method: GET
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
@@ -84,7 +78,7 @@ Attribute | Value
 --- | ---
 payload | [CoverageAreaPayload](#coverageareapayload)\[\]
 
-#### CoverageAreaPayload
+##### CoverageAreaPayload
 Attribute | Value
 --- | ---
 id | integer
@@ -102,11 +96,13 @@ ipPrinter | string or null
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
+---
+
 ## Prices
 
-## Calculate price
-#### Endpoint: /price/calculate
-#### Method: Post
+### Calculate price
+##### Endpoint: `/price/calculate`
+##### Method: POST
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
@@ -127,18 +123,20 @@ Attribute | Value
 --- | ---
 payload | [PricePayload](#pricepayload)
 
-#### PricePayload
+##### PricePayload
 Attribute | Value
 --- | ---
 price | float
 currency | string (ISO4217)
 luggagePrices| [LuggagePrice](#luggageprice)\[\]
 
+---
+
 ## Bookings
 
-## Create booking  
-#### Endpoint: /bookings
-#### Method: Post
+### Create booking  
+##### Endpoint: `/bookings`
+##### Method: POST
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
@@ -165,9 +163,9 @@ Attribute | Value
 --- | ---
 payload | [BookingPayload](#booking)
 
-## Get booking
-#### Endpoint: /bookings
-#### Method: Get
+### Get booking
+##### Endpoint: `/bookings`
+##### Method: GET
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
@@ -183,9 +181,21 @@ Attribute | Value
 --- | ---
 payload | [BookingPayload](#booking)
 
+---
 
-## Reference objects
-#### Address
+## Error response
+##### Endpoint: All
+##### Body
+Attributes | Value
+--- | ---
+statusCode | integer
+error | string
+message | string, `Array<T>`, ObjectLiteral
+
+---
+
+## Object reference
+##### Address
 Attribute | Value
 --- | ---
 id | integer
@@ -202,13 +212,13 @@ lastFetchFromGoogle | string (ISO8601)
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
-#### Luggage
+##### Luggage
 Attribute | Value
 --- | ---
 id | integer
 quantity | integer
 
-#### LuggagePrice
+##### LuggagePrice
 Attribute | Value 
 --- | ---
 id | integer
@@ -218,7 +228,7 @@ totalPrice | string
 currency | string (ISO4217)
 productPriceTier | [ProductPriceTier](#productpricetier)
 
-#### Price
+##### Price
 Attribute | Value
 --- | ---
 id | integer
@@ -228,7 +238,7 @@ currency | string (ISO4217)
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
-#### ProductPriceTier
+##### ProductPriceTier
 Attribute | Value
 --- | ---
 id | integer
@@ -239,7 +249,7 @@ endDate | string (ISO8601)
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
-#### Booking
+##### Booking
 Attribute | Value
 --- | ---
 id | string
@@ -272,7 +282,7 @@ insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 bookingLines | [BookingLine](#bookingline)\[\]
 
-#### BookingLine
+##### BookingLine
 Attribute | Value
 --- | ---
 id | integer
@@ -284,3 +294,4 @@ quantity | integer
 totalPrice | float
 currency | string (ISO4217)
 active | boolean
+
