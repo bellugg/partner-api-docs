@@ -24,7 +24,7 @@
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
-Authorization | string | API key issued to agent
+X-Api-Key | string | API key issued to agent
 
 #### Request query string
 Attribute | Value
@@ -67,7 +67,7 @@ isCovered | boolean
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
-Authorization | string | API key issued to agent
+X-Api-Key | string | API key issued to agent
 
 #### Request query string
 Attribute | Value
@@ -107,7 +107,7 @@ updatedAt | string (ISO8601)
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
-Authorization | string | API key issued to agent
+X-Api-Key | string | API key issued to agent
 
 #### Request body
 Attribute | Value
@@ -141,7 +141,7 @@ luggagePrices| [LuggagePrice](#luggageprice)\[\]
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
-Authorization | string | API key issued to agent
+X-Api-Key | string | API key issued to agent
 
 #### Request body
 Attribute | Value
@@ -170,7 +170,7 @@ payload | [BookingPayload](#booking)
 #### Request header
 Attribute | Value | Description
 --- | --- | ---
-Authorization | string | API key issued to agent
+X-Api-Key | string | API key issued to agent
 
 #### Request parameter
 Attribute | Value
