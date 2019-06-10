@@ -6,6 +6,8 @@
   * [Search addresses](#search-addresses)
 * [Coverage areas](#coverage-areas)
   * [List coverage areas](#list-coverage-areas)
+* [Operation times](#operation-times)
+  * [List available operation times](#list-available-operation-times)
 * [Prices](#prices)
   * [Calculate price](#calculate-price)
 * [Bookings](#bookings)
@@ -27,12 +29,12 @@ Attribute | Value | Description
 X-Api-Key | string | API key issued to agent
 
 #### Request query string
-Attribute | Value
---- | ---
-type | enum('source', 'destination')
-query | string
-sourceAddressId | integer or null (required integer if type='destination')
-language | string or null
+Attribute | Value | Description
+--- | --- | ---
+type | enum('source', 'destination') | Indicates whether search target is source or destination
+query | string | Search query (by name)
+sourceAddressId | integer or null | Indicates source address associates with target destination (required when type = 'destination')
+language | string or null | Search language bias
 
 #### Response body
 Attribute | Value
@@ -40,22 +42,22 @@ Attribute | Value
 payload | [SearchAddressPayload](#searchaddresspayload)\[\]
 
 ##### SearchAddressPayload
-Attribute | Value
---- | ---
+Attribute | Value | Description
+--- | --- | ---
 id | integer
-query | string
-placeId | string
+query | string | Search query
+placeId | string | Google's placeId
 language | string
 name | string
 description | string
-manuallyInput | boolean
-lat | float
-lng | float
+manuallyInput | boolean | Indicates whether this address info was input manually or programmatically
+lat | float | Latitude
+lng | float | Longitude
 geometry | [Geometry](https://tools.ietf.org/html/rfc7946#section-3)
-lastFetchFromGoogle | string (ISO8601)
+lastFetchFromGoogle | string (ISO8601) | Indicates last refresh placeId date
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
-isCovered | boolean
+isCovered | boolean | Indicates whether this address is support or not
 
 ---
 
@@ -70,9 +72,9 @@ Attribute | Value | Description
 X-Api-Key | string | API key issued to agent
 
 #### Request query string
-Attribute | Value
---- | ---
-sourceCoverageAreaId | integer or null
+Attribute | Value | Description
+--- | --- | ---
+sourceCoverageAreaId | integer or null | Indicates source coverage area associate with target coverage area
 
 #### Response body
 Attribute | Value
@@ -99,6 +101,29 @@ updatedAt | string (ISO8601)
 
 ---
 
+## Operation times
+
+### List available operation times
+##### Endpoint: `/availableOperationTimes`
+##### Method: GET
+#### Request header
+Attribute | Value | Description
+--- | --- | ---
+X-Api-Key | string | API key issued to agent
+
+#### Request query string
+Attribute | Value | Description
+--- | --- | ---
+sourceAddressId | integer | Indicates source address
+destinationAddressId | integer | Indicates destintion address
+
+#### Response body
+Attribute | Value
+--- | ---
+payload | [OperationTimesPayload](#operation-time)\[\]
+
+---
+
 ## Prices
 
 ### Calculate price
@@ -111,7 +136,7 @@ X-Api-Key | string | API key issued to agent
 
 #### Request body
 Attribute | Value
---- | ---
+--- | --- | ---
 sourceAddressId | integer
 destinationAddressId | integer
 currency | string (ISO4217)
@@ -197,26 +222,44 @@ message | string, Array<T>, ObjectLiteral
 
 ## Object reference
 ##### Address
-Attribute | Value
---- | ---
+Attribute | Value | Description
+--- | --- | ---
 id | integer
-query | string
-placeId | string
+query | string | Search query
+placeId | string | Google's placeId
 language | string
 name | string
 description | string
-manuallyInput | boolean
-lat | float
-lng | float
+manuallyInput | boolean | Indicates whether this address info was input manually or programmatically
+lat | float | Latitude
+lng | float | Longitude
 geometry | [Geometry](https://tools.ietf.org/html/rfc7946#section-3)
-lastFetchFromGoogle | string (ISO8601)
+lastFetchFromGoogle | string (ISO8601) | Indicates last refresh placeId date
+insertedAt | string (ISO8601)
+updatedAt | string (ISO8601)
+
+##### Operation time
+Attribute | Value | Description
+--- | --- | ---
+id | integer
+description | string or null
+dropOffFrom | string | Indicates drop off start time
+dropOffTo | string | Indicate drop off end time
+dropOffTimezone | string | Indicate drop off [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+pickUpFrom | string or null | Indicates pickup start time (required if dynamicPickup = null)
+dynamicPickUp | integer or null | Indicates pickup start time adjusted dynamically to choosen drop off time
+pickUpTo | string | Indicates pickup end time
+pickUpTimezone | string | Indicates pickup [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+isSameDayBooking | boolean | Applies when booking date and drop off date are the same
+isSameDayDelivering | boolean | Applies when delivering date and pickup date are the same
+priority | integer | Indicates priority, the greater the number the higher priority
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
 ##### Luggage
-Attribute | Value
---- | ---
-id | integer
+Attribute | Value | Description
+--- | --- | ---
+id | integer | Indicates product's type id
 quantity | integer
 
 ##### LuggagePrice
