@@ -21,7 +21,7 @@
 ## Addresses
 
 ### Search addresses
-##### Endpoint: `/addresses`
+##### Endpoint: `v0.1/addresses`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -63,8 +63,41 @@ isCovered | boolean | Indicates whether this address is support or not
 
 ## Coverage areas
 
-### List coverage areas
-##### Endpoint: `/coverageAreas`
+### List source coverage areas
+##### Endpoint: `v0.1/sourceCoverageAreas`
+##### Method: GET
+#### Request header
+Attribute | Value | Description
+--- | --- | ---
+X-Api-Key | string | API key issued to agent
+
+#### Response body
+Attribute | Value
+--- | ---
+payload | [CoverageAreaPayload](#coverageareapayload)\[\]
+
+##### CoverageAreaPayload
+Attribute | Value
+--- | ---
+id | integer
+coverageAreaTypeId | integer
+geometry | [Geometry](https://tools.ietf.org/html/rfc7946#section-3)
+name | string
+symbol | string or null
+location | string
+active | boolean
+limousineSupport | boolean
+placeId | string or null
+legacyAirportId | integer or null
+legacyBranchId | integer or null
+ipPrinter | string or null
+insertedAt | string (ISO8601)
+updatedAt | string (ISO8601)
+
+---
+
+### List destination coverage areas
+##### Endpoint: `v0.1/destinationCoverageAreas`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -74,7 +107,8 @@ X-Api-Key | string | API key issued to agent
 #### Request query string
 Attribute | Value | Description
 --- | --- | ---
-sourceCoverageAreaId | integer or null | Indicates source coverage area associate with target coverage area
+sourceLat | integer or null | Indicates source address latitude
+sourceLng | integer or null | Indicates source address longitude
 
 #### Response body
 Attribute | Value
@@ -104,7 +138,7 @@ updatedAt | string (ISO8601)
 ## Operation times
 
 ### List available operation times
-##### Endpoint: `/availableOperationTimes`
+##### Endpoint: `v0.1/availableOperationTimes`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -127,7 +161,7 @@ payload | [OperationTimesPayload](#operation-time)\[\]
 ## Prices
 
 ### Calculate price
-##### Endpoint: `/price/calculate`
+##### Endpoint: `v0.1/price/calculate`
 ##### Method: POST
 #### Request header
 Attribute | Value | Description
@@ -161,7 +195,7 @@ luggagePrices| [LuggagePrice](#luggageprice)\[\]
 ## Bookings
 
 ### Create booking  
-##### Endpoint: `/bookings`
+##### Endpoint: `v0.1/bookings`
 ##### Method: POST
 #### Request header
 Attribute | Value | Description
@@ -190,7 +224,7 @@ Attribute | Value
 payload | [BookingPayload](#booking)
 
 ### Get booking
-##### Endpoint: `/bookings`
+##### Endpoint: `v0.1/bookings`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
