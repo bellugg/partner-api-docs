@@ -170,7 +170,7 @@ X-Api-Key | string | API key issued to agent
 
 #### Request body
 Attribute | Value
---- | --- | ---
+--- | ---
 sourceAddressId | integer
 destinationAddressId | integer
 currency | string (ISO4217)
