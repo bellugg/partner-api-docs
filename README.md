@@ -21,7 +21,7 @@
 ## Addresses
 
 ### Search addresses
-##### Endpoint: `v0.1/addresses`
+##### Endpoint: `/v0.1/addresses`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -64,7 +64,7 @@ isCovered | boolean | Indicates whether this address is support or not
 ## Coverage areas
 
 ### List source coverage areas
-##### Endpoint: `v0.1/sourceCoverageAreas`
+##### Endpoint: `/v0.1/sourceCoverageAreas`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -97,7 +97,7 @@ updatedAt | string (ISO8601)
 ---
 
 ### List destination coverage areas
-##### Endpoint: `v0.1/destinationCoverageAreas`
+##### Endpoint: `/v0.1/destinationCoverageAreas`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -138,7 +138,7 @@ updatedAt | string (ISO8601)
 ## Operation times
 
 ### List available operation times
-##### Endpoint: `v0.1/availableOperationTimes`
+##### Endpoint: `/v0.1/operationTimes`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
@@ -161,7 +161,7 @@ payload | [OperationTimesPayload](#operation-time)\[\]
 ## Prices
 
 ### Calculate price
-##### Endpoint: `v0.1/price/calculate`
+##### Endpoint: `/v0.1/price/calculate`
 ##### Method: POST
 #### Request header
 Attribute | Value | Description
@@ -195,7 +195,7 @@ luggagePrices| [LuggagePrice](#luggageprice)\[\]
 ## Bookings
 
 ### Create booking  
-##### Endpoint: `v0.1/bookings`
+##### Endpoint: `/v0.1/bookings`
 ##### Method: POST
 #### Request header
 Attribute | Value | Description
@@ -224,7 +224,7 @@ Attribute | Value
 payload | [BookingPayload](#booking)
 
 ### Get booking
-##### Endpoint: `v0.1/bookings`
+##### Endpoint: `/v0.1/bookings`
 ##### Method: GET
 #### Request header
 Attribute | Value | Description
