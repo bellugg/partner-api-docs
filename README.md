@@ -187,7 +187,7 @@ payload | [ProductsPayload](#product)\[\]
 ## Prices
 
 ### Calculate price
-##### Endpoint: `/price/calculate`
+##### Endpoint: `/prices/calculate`
 ##### Method: POST
 #### Request header
 Attribute | Value | Description
