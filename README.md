@@ -331,13 +331,14 @@ updatedAt | string (ISO8601)
 ##### Luggage
 Attribute | Value | Description
 --- | --- | ---
-id | integer | Indicates product's type id
+sku | string | Indicates desired product sku
 quantity | integer
 
 ##### LuggagePrice
 Attribute | Value 
 --- | ---
 id | integer
+sku | string
 quantity | integer
 price | [Price](#price)
 totalPrice | string
