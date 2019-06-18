@@ -9,6 +9,8 @@
   * [List destination coverage areas](#list-destination-coverage-areas)
 * [Operation times](#operation-times)
   * [List available operation times](#list-available-operation-times)
+* [Products](#products)
+  * [List available products](#list-available-products)
 * [Prices](#prices)
   * [Calculate price](#calculate-price)
 * [Bookings](#bookings)
@@ -159,10 +161,33 @@ payload | [OperationTimesPayload](#operation-time)\[\]
 
 ---
 
+## Products
+
+### List available products
+##### Endpoints: `/products`
+##### Method: GET
+#### Request header
+Attribute | Value | Description
+--- | --- | ---
+X-Api-Key | string | API key issued to agent
+
+#### Request query string
+Attribute | Value | Description
+--- | --- | ---
+sourceAddressId | integer | Indicates source address
+destinationAddressId | integer | Indicates destintion address
+
+#### Response body
+Attribute | Value
+--- | ---
+payload | [ProductsPayload](#product)\[\]
+
+---
+
 ## Prices
 
 ### Calculate price
-##### Endpoint: `/price/calculate`
+##### Endpoint: `/prices/calculate`
 ##### Method: POST
 #### Request header
 Attribute | Value | Description
@@ -291,16 +316,29 @@ priority | integer | Indicates priority, the greater the number the higher prior
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
+##### Product
+Attribute | Value | Description
+--- | --- | ---
+id | integer
+sku | string | Used in price check and booking process
+productTypeId | integer
+name | string
+description | string
+active | boolean
+insertedAt | string (ISO8601)
+updatedAt | string (ISO8601)
+
 ##### Luggage
 Attribute | Value | Description
 --- | --- | ---
-id | integer | Indicates product's type id
+sku | string | Indicates desired product sku
 quantity | integer
 
 ##### LuggagePrice
 Attribute | Value 
 --- | ---
 id | integer
+sku | string
 quantity | integer
 price | [Price](#price)
 totalPrice | string
