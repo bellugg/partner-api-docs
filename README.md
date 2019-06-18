@@ -9,6 +9,8 @@
   * [List destination coverage areas](#list-destination-coverage-areas)
 * [Operation times](#operation-times)
   * [List available operation times](#list-available-operation-times)
+* [Products](#products)
+  * [List available products](#list-available-products)
 * [Prices](#prices)
   * [Calculate price](#calculate-price)
 * [Bookings](#bookings)
@@ -159,6 +161,29 @@ payload | [OperationTimesPayload](#operation-time)\[\]
 
 ---
 
+## Products
+
+### List available products
+##### Endpoints: `/products`
+##### Method: GET
+#### Request header
+Attribute | Value | Description
+--- | --- | ---
+X-Api-Key | string | API key issued to agent
+
+#### Request query string
+Attribute | Value | Description
+--- | --- | ---
+sourceAddressId | integer | Indicates source address
+destinationAddressId | integer | Indicates destintion address
+
+#### Response body
+Attribute | Value
+--- | ---
+payload | [ProductsPayload](#product)\[\]
+
+---
+
 ## Prices
 
 ### Calculate price
@@ -288,6 +313,18 @@ pickUpTimezone | string | Indicates pickup [time zone](https://en.wikipedia.org/
 isSameDayBooking | boolean | Applies when booking date and drop off date are the same
 isSameDayDelivering | boolean | Applies when delivering date and pickup date are the same
 priority | integer | Indicates priority, the greater the number the higher priority
+insertedAt | string (ISO8601)
+updatedAt | string (ISO8601)
+
+##### Product
+Attribute | Value | Description
+--- | --- | ---
+id | integer
+sku | string | Used in price check and booking process
+productTypeId | integer
+name | string
+description | string
+active | boolean
 insertedAt | string (ISO8601)
 updatedAt | string (ISO8601)
 
