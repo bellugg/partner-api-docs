@@ -1,5 +1,4 @@
-  
-# Bellugg Agent API Specification
+# Bellugg Partner API Specification
 
 ### Table of Contents
 * [Base URL](#base-url)
@@ -417,4 +416,3 @@ quantity | integer
 totalPrice | float
 currency | string (ISO4217)
 active | boolean
-
