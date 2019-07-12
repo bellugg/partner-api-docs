@@ -1,7 +1,7 @@
-  
-# Bellugg Agent API Specification
+# Bellugg Partner API Specification
 
 ### Table of Contents
+* [Base URL](#base-url)
 * [Addresses](#addresses)
   * [Search addresses](#search-addresses)
 * [Coverage areas](#coverage-areas)
@@ -18,6 +18,11 @@
   * [Get booking](#get-booking)
 * [Error response](#error-response)
 * [Object reference](#object-reference)
+
+---
+
+## Base URL
+https://api-dev.bellugg.com/v0.1
 
 ---
 
@@ -411,4 +416,3 @@ quantity | integer
 totalPrice | float
 currency | string (ISO4217)
 active | boolean
-
