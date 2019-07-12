@@ -22,7 +22,7 @@
 ---
 
 ## Base URL
-https://api-dev.bellugg.com/v0.1
+https://api-dev.bellugg.com/v0
 
 ---
 
@@ -234,15 +234,19 @@ Attribute | Value | Description
 X-Api-Key | string | API key issued to agent
 
 #### Request body
-Attribute | Value
---- | ---
+Attribute | Value | Description
+--- | --- | ---
 name | string
 email | string
 social | string
 passport | string or null
 phoneNumber | string or null
-sourceAddressId | integer
-destinationAddressId | integer
+sourceAddressId | integer or null | use together with destinationAddressId
+destinationAddressId | integer or null | use together with sourceAddressId
+sourceAddressPlaceId | integer or null | use together with destinationAddressPlaceId
+destinationAddressPlaceId | integer or null | use together with sourceAddressPlaceId
+sourceCoverageAreaId | integer or null | use together with destinationCoverageAreaId
+destinationCoverageAreaId | integer or null | use together with sourceCoverageAreaId
 dropOffDateTime | date (ISO8601)
 pickUpDateTime | date (ISO8601)
 luggage | [Luggage](#luggage)\[\]
