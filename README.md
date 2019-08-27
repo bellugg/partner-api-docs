@@ -379,7 +379,7 @@ updatedAt | string (ISO8601)
 Attribute | Value
 --- | ---
 id | string
-status | enum('requested', 'approved' 'rejected')
+status | enum('pending_review', 'confirmed', 'cancelled')
 legacyOrderTypeId | integer or null
 agentId | integer
 agentRefId | string or null
