@@ -156,8 +156,10 @@ X-Api-Key | string | API key issued to agent
 #### Request query string
 Attribute | Value | Description
 --- | --- | ---
-sourceAddressId | integer | Indicates source address
-destinationAddressId | integer | Indicates destintion address
+sourceAddressId | integer or null | Indicates source address
+destinationAddressId | integer or null| Indicates destination address (use with sourceAddressId)
+sourceCoverageAreaId | integer or null| Indicates source coverage area
+destinationCoverageAreaId | integer or null| Indicates destination coverage area (use with sourceCoverageAreaId)
 
 #### Response body
 Attribute | Value
